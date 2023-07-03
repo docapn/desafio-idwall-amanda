@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-idwall
+spec:
+  rules:
+    - host: testetecnicoidwall.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: idwall-service
+                port:
+                  number: 80
